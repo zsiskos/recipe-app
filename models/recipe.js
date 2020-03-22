@@ -8,8 +8,9 @@ const CommentSchema = new Schema({
     },
     copy: String,
     rating: Number,
-    timestamps: true
-});
+  }, 
+  { timestamps: true, }
+);
 
 const RecipeSchema = new Schema({
     title: String,
@@ -25,8 +26,9 @@ const RecipeSchema = new Schema({
         ref: 'User'
     },
     comments: [CommentSchema],
-    timestamps: true,
-  });
+  }, 
+  { timestamps: true, }
+);
 
 const Recipe = mongoose.model('Recipe', RecipeSchema);
 
