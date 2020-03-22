@@ -14,18 +14,22 @@ function index(res, res) {
     Recipe.find({}, function(err, recipe) {
         res.render('recipes/index', {title: 'All recipes'});
     });
-}
+};
 
 function show(res, res) {
     console.log('recipe.show works!')
 };
 
 function newRecipe(res, res) {
-    console.log('recipe.newRecipe works!')
+    res.render('recipes/new', {title: 'Add recipe'});
 };
 
 function create(res, res) {
-    console.log('recipe.newRecipe works!')
+    let recipe = new Recipe(req.body);
+    recipe.save(function(err) {
+        if (err) return res.redirect('api/recipes/new');
+        res.redirect(`api/recipe/${recipe._id}`)
+    });
 };
 
 function showOne(res, res) {
