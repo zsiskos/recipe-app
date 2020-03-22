@@ -11,8 +11,9 @@ module.exports = {
 };
 
 function index(res, res) {
-    Recipe.find({}, function(err, recipe) {
-        res.render('recipes/index', {title: 'All recipes'});
+    Recipe.find({}, function(err, recipes) {
+        res.status(200).json(recipes);
+        // res.render('recipes/index', {title: 'All recipes'});
     });
 };
 
@@ -25,6 +26,7 @@ function newRecipe(res, res) {
 };
 
 function create(res, res) {
+    //need to insert the user creating it
     let recipe = new Recipe(req.body);
     recipe.save(function(err) {
         if (err) return res.redirect('api/recipes/new');
