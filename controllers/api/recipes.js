@@ -10,17 +10,20 @@ module.exports = {
     deleteRecipe,
 };
 
-function index(res, res) {
-    Recipe.find({}, function(err, recipes) {
-        res.status(200).json(recipes);
-    });
-};
+function index(req, res) {
+    Recipe.find({})
+        .then(recipes => {
+            res.status(200).json(recipes);
+        })
+        .catch(err =>
+            res.status(500).json({ error: true })       
+        )};
 
-function show(res, res) {
+function show(req, res) {
     console.log('recipe.show works!')
 };
 
-function newRecipe(res, res) {
+function newRecipe(req, res) {
     res.render('recipes/new', {title: 'Add recipe'});
 };
 
@@ -36,13 +39,17 @@ function create(req, res) {
     });
 };
 
-function showOne(res, res) {
-    console.log('recipe.show works!')
+function showOne(req, res) {
+    Recipe.findById(req.params.id)
+        .then(function(recipe) {
+            res.status(200).json(recipe);
+        });
 };
 
-function update(res, res) {
+function update(req, res) {
     console.log('recipe.update works!')
 };
-function deleteRecipe(res, res) {
+
+function deleteRecipe(req, res) {
     console.log('recipe.deleteRecipe works!')
 };
