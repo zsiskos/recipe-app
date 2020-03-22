@@ -11,8 +11,10 @@ module.exports = {
 };
 
 function index(res, res) {
-    console.log('recipe.index works!')
-};
+    Recipe.find({}, function(err, recipe) {
+        res.render('recipes/index', {title: 'All recipes'});
+    });
+}
 
 function show(res, res) {
     console.log('recipe.show works!')
