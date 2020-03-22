@@ -13,7 +13,6 @@ module.exports = {
 function index(res, res) {
     Recipe.find({}, function(err, recipes) {
         res.status(200).json(recipes);
-        // res.render('recipes/index', {title: 'All recipes'});
     });
 };
 
@@ -25,11 +24,14 @@ function newRecipe(res, res) {
     res.render('recipes/new', {title: 'Add recipe'});
 };
 
-function create(res, res) {
+function create(req, res) {
     //need to insert the user creating it
-    let recipe = new Recipe(req.body);
-    recipe.save(function(err) {
-        if (err) return res.redirect('api/recipes/new');
+    Recipe.create(req.body)
+        .then(recipeCreated => {
+            res.json(recipeCreated);
+        })
+        .catch(err => {
+            if (err) return res.redirect('api/recipes/new');
         res.redirect(`api/recipe/${recipe._id}`)
     });
 };
