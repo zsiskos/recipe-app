@@ -1,0 +1,24 @@
+RECIPES
+METHOD  CTRL	    URI	                            DESCRIPTION
+GET     index       /api/recipes                	list of all recipes
+GET     show  	    /api/recipes/?QUERYPARAMS       see all recipes based on search
+GET	    new         /api/recipes/new          	    show form to create new recipe
+POST    create      /api/recipes/:id                create new recipe
+GET     show	    /api/recipes/:id                get a single recipe
+PUT     update	    /api/recipes/:id                update a recipe
+DELETE  delete	    /api/recipes/:id                delete a recipe
+
+
+COMMENTS
+METHOD  CTRL	    URI	                            DESCRIPTION
+GET     	        /api/recipes/:id/comments	    get all the comments on recipe
+GET     	        /api/recipes/comments/:id       get a specific comments
+POST    	        /api/recipes/:id/comments 	    create a comment on recipe
+DELETE      	    /api/recipes/comments/:id 	    delete a comment
+
+USER
+METHOD  CTRL	    ROUTE	                        DESCRIPTION
+GET     index       /:username                      See user profile (will show recipes)
+POST    create      /????                           create new user
+???? - saving recipe to user profile
+
