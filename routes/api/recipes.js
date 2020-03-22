@@ -4,7 +4,7 @@ const recipesCtrl = require('../../controllers/api/recipes')
 
 router.get('/', recipesCtrl.index);
 router.get('/search', recipesCtrl.show);
-router.get('/new', recipesCtrl.newRecipe);
+router.get('/:tag', recipesCtrl.newRecipe);
 router.post('/', recipesCtrl.create);
 router.get('/:id', recipesCtrl.showOne);
 router.put('/:id', recipesCtrl.update);

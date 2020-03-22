@@ -20,8 +20,15 @@ function index(req, res) {
         )};
 
 function show(req, res) {
-    console.log('recipe.show works!')
-};
+    let search = req.query.tags;
+    console.log(search);
+    Recipe.find({tags: (search)})
+        .then(recipes => {
+            res.status(200).json(recipes);
+        })
+        .catch(err => 
+            res.status(500).json({ error: true })
+        )};
 
 function newRecipe(req, res) {
     res.render('recipes/new', {title: 'Add recipe'});
@@ -34,7 +41,7 @@ function create(req, res) {
             res.json(recipeCreated);
         })
         .catch(err => {
-            if (err) return res.redirect('api/recipes/new');
+            if (err) return res.redirect('api/recipes');
         res.redirect(`api/recipe/${recipe._id}`)
     });
 };
@@ -47,9 +54,15 @@ function showOne(req, res) {
 };
 
 function update(req, res) {
-    console.log('recipe.update works!')
+    Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        .then(function(recipe){
+            res.status(200).json(recipe)
+        });
 };
 
 function deleteRecipe(req, res) {
-    console.log('recipe.deleteRecipe works!')
+    Recipe.findByIdAndDelete(req.params.id, req.body)
+    .then(function(recipe){
+        res.status(200).json(recipe)
+    });
 };
