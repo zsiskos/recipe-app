@@ -18,11 +18,14 @@ function index(req, res) {
         )};
 
 function showOne(req, res) {
-    Users.findById(req.params.id)
+    console.log(req.params.name);
+    Users.find({name: req.params.name})
         .then(function(user) {
             res.status(200).json(user);
-        });
-};
+        })
+        .catch(err =>
+            res.status(500).json({ error: true })       
+        )};
 
 function create(req, res) {
     Users.create(req.body)
