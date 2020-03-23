@@ -2,7 +2,7 @@ const Recipe = require('../../models/recipe')
 
 module.exports = {
     index,
-    show,
+    search,
     newRecipe,
     create,
     showOne,
@@ -19,7 +19,7 @@ function index(req, res) {
             res.status(500).json({ error: true })       
         )};
 
-function show(req, res) {
+function search(req, res) {
     let search = req.query.tags;
     console.log(search);
     Recipe.find({tags: (search)})

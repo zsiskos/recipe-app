@@ -3,7 +3,7 @@ var router = express.Router();
 const recipesCtrl = require('../../controllers/api/recipes')
 
 router.get('/', recipesCtrl.index);
-router.get('/search', recipesCtrl.show);
+router.get('/search', recipesCtrl.search);
 router.get('/:tag', recipesCtrl.newRecipe);
 router.post('/', recipesCtrl.create);
 router.get('/:id', recipesCtrl.showOne);

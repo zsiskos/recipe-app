@@ -1,9 +1,9 @@
 RECIPES
 METHOD  CTRL	    URI	                            DESCRIPTION
 GET     index       /api/recipes                	list of all recipes
-GET     show  	    /api/recipes/?QUERYPARAMS       see all recipes based on search
+GET     show  	    /api/recipes/search             see all recipes based on search
 GET	    new         /api/recipes/new          	    show form to create new recipe
-POST    create      /api/recipes/:id                create new recipe
+POST    create      /api/recipes/                   create new recipe
 GET     show	    /api/recipes/:id                get a single recipe
 PUT     update	    /api/recipes/:id                update a recipe
 DELETE  delete	    /api/recipes/:id                delete a recipe
