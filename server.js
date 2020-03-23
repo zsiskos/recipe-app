@@ -11,9 +11,6 @@ let indexRouter = require('./routes/index');
 let recipesRouter = require('./routes/api/recipes');
 let usersRouter = require('./routes/api/users')
 
-
-
-
 let recipeDB = require('./models/recipe')
 
 var app = express();

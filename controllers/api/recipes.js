@@ -33,8 +33,8 @@ function search(req, res) {
 
 function create(req, res) {
     Recipe.create(req.body)
-        .then(recipeCreated => {
-            res.json(recipeCreated);
+        .then(recipe => {
+            res.json(recipe);
         })
         .catch(err => {
             if (err) return res.redirect('api/recipes');
