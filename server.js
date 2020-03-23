@@ -8,7 +8,11 @@ require('dotenv').config();
 require('./config/database')
 
 let indexRouter = require('./routes/index');
-let apiRouter = require('./routes/api/index');
+let recipesRouter = require('./routes/api/recipes');
+let usersRouter = require('./routes/api/users')
+
+
+
 
 let recipeDB = require('./models/recipe')
 
@@ -25,7 +29,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/api', apiRouter);
+app.use('/api/recipes', recipesRouter);
+app.use('/api/users', usersRouter);
 
 
 // catch 404 and forward to error handler

@@ -1,8 +1,7 @@
 RECIPES
 METHOD  CTRL	    URI	                            DESCRIPTION
 GET     index       /api/recipes                	list of all recipes
-GET     show  	    /api/recipes/search             see all recipes based on search
-GET	    new         /api/recipes/new          	    show form to create new recipe
+GET     show  	    /api/recipes/search             see specific recipes based on search
 POST    create      /api/recipes/                   create new recipe
 GET     show	    /api/recipes/:id                get a single recipe
 PUT     update	    /api/recipes/:id                update a recipe
@@ -18,7 +17,10 @@ DELETE      	    /api/recipes/comments/:id 	    delete a comment
 
 USER
 METHOD  CTRL	    ROUTE	                        DESCRIPTION
-GET     index       /:username                      See user profile (will show recipes)
-POST    create      /????                           create new user
-???? - saving recipe to user profile
+GET     index       /:username                      See user profile 
+POST    create      /newUser                        Create new user
+GET     show        /:username/myRecipes            Show user's recipes
+GET     show        /:username/savedRecipes         Show saved recipes
+
+
 

@@ -3,7 +3,6 @@ const Recipe = require('../../models/recipe')
 module.exports = {
     index,
     search,
-    newRecipe,
     create,
     showOne,
     update,
@@ -22,7 +21,7 @@ function index(req, res) {
 function search(req, res) {
     let search = req.query.tags;
     console.log(search);
-    Recipe.find({tags: (search)})
+    Recipe.find({tags: search})
         .then(recipes => {
             res.status(200).json(recipes);
         })
@@ -30,12 +29,9 @@ function search(req, res) {
             res.status(500).json({ error: true })
         )};
 
-function newRecipe(req, res) {
-    res.render('recipes/new', {title: 'Add recipe'});
-};
+
 
 function create(req, res) {
-    //need to insert the user creating it
     Recipe.create(req.body)
         .then(recipeCreated => {
             res.json(recipeCreated);

@@ -6,11 +6,11 @@ const UserSchema = new Schema({
     email: String,
     foodPreference: [String],
     recipesCreated: {
-        type: Schema.Types.OjbectId,
+        type: Schema.Types.ObjectId,
         ref: 'Recipe'
     },
     recipesSaved: {
-        type: Schema.Types.OjbectId,
+        type: Schema.Types.ObjectId,
         ref: 'Recipe'
     },
 },
