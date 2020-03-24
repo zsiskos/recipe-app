@@ -18,7 +18,6 @@ function index(req, res) {
         )};
 
 function showOne(req, res) {
-    console.log(req.params.name);
     Users.find({name: req.params.name})
         .then(function(user) {
             res.status(200).json(user);

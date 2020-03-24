@@ -1,12 +1,16 @@
 const Recipe = require('../../models/recipe')
+const User = require('../../models/user')
 
 module.exports = {
     index,
     search,
-    create,
     showOne,
+    create,
     update,
     deleteRecipe,
+    saveToList,
+    createComment,
+    deleteComment
 };
 
 function index(req, res) {
@@ -29,7 +33,12 @@ function search(req, res) {
             res.status(500).json({ error: true })
         )};
 
-
+function showOne(req, res) {
+    Recipe.findById(req.params.id)
+        .then(function(recipe) {
+            res.status(200).json(recipe);
+        });
+};
 
 function create(req, res) {
     Recipe.create(req.body)
@@ -40,13 +49,6 @@ function create(req, res) {
             if (err) return res.redirect('api/recipes');
         res.redirect(`api/recipe/${recipe._id}`)
     });
-};
-
-function showOne(req, res) {
-    Recipe.findById(req.params.id)
-        .then(function(recipe) {
-            res.status(200).json(recipe);
-        });
 };
 
 function update(req, res) {
@@ -61,4 +63,36 @@ function deleteRecipe(req, res) {
     .then(function(recipe){
         res.status(200).json(recipe)
     });
+};
+
+//NOT FINISHED
+function saveToList(req, res) {
+    Recipe.findById(req.params.id, function(err, user) {
+      user.recipesSaved.push(req.body.recipeId);
+      user.save(function(err) {
+        res.redirect(`/api/${user.name}`);
+      });
+    });
+};
+
+
+function deleteRecipe(req, res) {
+    Recipe.findByIdAndDelete(req.params.id, req.body)
+    .then(function(recipe){
+        res.status(200).json(recipe)
+    });
+};
+
+function createComment(req, res) {
+    Recipe.findById(req.params.id, function(err, recipe) {
+        recipe.comments.push(req.body);
+        recipe.save(function(err) {
+            res.json(recipe);
+        });
+    });
+};
+
+
+function deleteComment(req, res) {
+  console.log('delete comment');
 };

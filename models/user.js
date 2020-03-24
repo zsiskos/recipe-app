@@ -5,14 +5,14 @@ const UserSchema = new Schema({
     name: String,
     email: String,
     foodPreference: [String],
-    recipesCreated: {
+    recipesCreated: [{
         type: Schema.Types.ObjectId,
         ref: 'Recipe'
-    },
-    recipesSaved: {
+    }],
+    recipesSaved: [{
         type: Schema.Types.ObjectId,
         ref: 'Recipe'
-    },
+    }],
 },
     { timestamps: true, }
 );
