@@ -14,6 +14,6 @@ router.delete('/:id', recipesCtrl.deleteRecipe);
 router.post('/:id', recipesCtrl.saveToList);
 
 router.post('/:id/comments/', recipesCtrl.createComment);
-router.delete('/comments/:id', recipesCtrl.deleteComment);
+router.delete('/:id/comments/:id', recipesCtrl.deleteComment);
 
 module.exports = router;

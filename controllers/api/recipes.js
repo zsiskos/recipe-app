@@ -92,7 +92,12 @@ function createComment(req, res) {
     });
 };
 
-
 function deleteComment(req, res) {
-  console.log('delete comment');
+    Recipe.findOne({'comments._id': req.params.id}, function(err, recipe) {
+        const commentSubdoc = recipe.comments.id(req.params.id);
+        commentSubdoc.remove();
+        recipe.save(function(err) {
+            res.status(200).json(recipe);
+        });
+    });
 };
