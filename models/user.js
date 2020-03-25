@@ -19,3 +19,10 @@ const UserSchema = new Schema({
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
+
+// {	
+// 	"userName": "Muscles",
+//     "email": "strongArm@gmail.com",
+//     "password": "soTough4",
+//     "foodPreferences": "keto"
+// }

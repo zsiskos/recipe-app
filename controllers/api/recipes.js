@@ -8,7 +8,7 @@ module.exports = {
     create,
     update,
     deleteRecipe,
-    // saveToList,
+    saveToList,
     createComment,
     deleteComment
 };
@@ -41,7 +41,6 @@ function showOne(req, res) {
 };
 
 function create(req, res) {
-    //Need to associate with user
     Recipe.create(req.body)
         .then(recipe => {
             res.json(recipe);
@@ -66,19 +65,16 @@ function deleteRecipe(req, res) {
     });
 };
 
-//NOT FINISHED
-// function saveToList(req, res) {
-//     Recipe.findById(req.params.id, function(err, recipe) {
-//         User.find({userName: req.query.userName}, function(err, user){
-//             console.log(user, recipe._id)
-//             // user.recipesSaved.push(recipe._id);
-//             // user.save(function(err) {
-//                 res.status(200).json(user);
-//             });
-//         });
-//     // });
-// };
-
+function saveToList(req, res) {
+    Recipe.findById(req.params.id, function(err, recipe) {
+        User.findOne({userName: req.query.userName}, function(err, user){
+            user.recipesSaved.push(recipe._id);
+            user.save(function(err) {
+                res.status(200).json(user);
+            });
+        });
+    });
+};
 
 function createComment(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {
