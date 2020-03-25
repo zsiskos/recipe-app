@@ -12,9 +12,9 @@ POST    create      /api/recipes/:id                save recipe to user (must be
 COMMENTS
 METHOD  CTRL	    URI	                            DESCRIPTION
 n/a     n/a         n/a                             all the comments on recipe will be shown on recipe/:id
-GET     	        /api/recipes/comments/:id       get a specific comments
-POST    	        /api/recipes/:id/comments 	    create a comment on recipe (must be logged in)
-DELETE      	    /api/recipes/comments/:id 	    delete a comment (must be logged in)
+GET     index       /api/recipes/comments/:id       get a specific comment
+POST    create      /api/recipes/:id/comments 	    create a comment on recipe (must be logged in)
+DELETE  delete      /api/recipes/comments/:id 	    delete a comment (must be logged in)
 
 USER
 METHOD  CTRL	    ROUTE	                        DESCRIPTION

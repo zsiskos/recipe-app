@@ -8,7 +8,7 @@ module.exports = {
     create,
     update,
     deleteRecipe,
-    saveToList,
+    // saveToList,
     createComment,
     deleteComment
 };
@@ -20,7 +20,7 @@ function index(req, res) {
         })
         .catch(err =>
             res.status(500).json({ error: true })       
-        )};
+)};
 
 function search(req, res) {
     let search = req.query.tags;
@@ -31,7 +31,7 @@ function search(req, res) {
         })
         .catch(err => 
             res.status(500).json({ error: true })
-        )};
+)};
 
 function showOne(req, res) {
     Recipe.findById(req.params.id)
@@ -41,6 +41,7 @@ function showOne(req, res) {
 };
 
 function create(req, res) {
+    //Need to associate with user
     Recipe.create(req.body)
         .then(recipe => {
             res.json(recipe);
@@ -66,22 +67,18 @@ function deleteRecipe(req, res) {
 };
 
 //NOT FINISHED
-function saveToList(req, res) {
-    Recipe.findById(req.params.id, function(err, user) {
-      user.recipesSaved.push(req.body.recipeId);
-      user.save(function(err) {
-        res.redirect(`/api/${user.name}`);
-      });
-    });
-};
+// function saveToList(req, res) {
+//     Recipe.findById(req.params.id, function(err, recipe) {
+//         User.find({userName: req.query.userName}, function(err, user){
+//             console.log(user, recipe._id)
+//             // user.recipesSaved.push(recipe._id);
+//             // user.save(function(err) {
+//                 res.status(200).json(user);
+//             });
+//         });
+//     // });
+// };
 
-
-function deleteRecipe(req, res) {
-    Recipe.findByIdAndDelete(req.params.id, req.body)
-    .then(function(recipe){
-        res.status(200).json(recipe)
-    });
-};
 
 function createComment(req, res) {
     Recipe.findById(req.params.id, function(err, recipe) {

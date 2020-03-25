@@ -18,7 +18,7 @@ function index(req, res) {
         )};
 
 function showOne(req, res) {
-    Users.find({name: req.params.name})
+    Users.find({name: req.params.userName})
         .then(function(user) {
             res.status(200).json(user);
         })
