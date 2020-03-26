@@ -8,11 +8,9 @@ require('dotenv').config();
 require('./config/database')
 
 let indexRouter = require('./routes/index');
+let apiRouter = require('./routes/api/api');
 let recipesRouter = require('./routes/api/recipes');
 let usersRouter = require('./routes/api/users')
-
-
-let recipeDB = require('./models/recipe')
 
 var app = express();
 
@@ -27,6 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/api', apiRouter);
 app.use('/api/recipes', recipesRouter);
 app.use('/api/users', usersRouter);
 
