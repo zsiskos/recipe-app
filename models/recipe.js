@@ -27,8 +27,8 @@ const RecipeSchema = new Schema({
         ref: 'User'
     },
     comments: [CommentSchema],
-  }, 
-  { timestamps: true, }
+    }, 
+    { timestamps: true, }
 );
 
 const Recipe = mongoose.model('Recipe', RecipeSchema);
