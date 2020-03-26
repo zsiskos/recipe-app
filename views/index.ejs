@@ -13,17 +13,17 @@
         <img src="https://i.imgur.com/iPRrXaM.jpg" class="card-img-top" alt="ingredients to make spaghetti">
         <div class="card-body">
           <h2 class="display-3"><%= title %></h2>
-          <p class="card-text">A free API for culinarians and foodies alike. Find, create, save,  and share your favourite recipes.</p>
-          <p class="card-text"><small class="text-muted">Base url:<a href="#" target="_blank">LINK</a></small></p>
+          <p class="card-text">A free API for culinarians. Find, create, save, and share your favourite recipes.</p>
+          <p class="card-text"><small class="text-muted">Base url: https://recipe-box-sei-project.herokuapp.com/api</small></p>
         </div>
       </div>
 
-      <h1>Models</h1>
+      <h1 class="text-secondary">Models</h1>
       <div class="accordion  mb-3" id="accordionExample">
         <div class="card">
-          <div class="card-header" id="headingOne">
+          <div class="card-header bg-info" id="headingOne">
             <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">USER</button>
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">USER</button>
             </h2>
           </div>
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -51,9 +51,9 @@
         </div>
       
         <div class="card">
-          <div class="card-header" id="headingTwo">
+          <div class="card-header bg-info" id="headingTwo">
             <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">RECIPE</button>
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">RECIPE</button>
             </h2>
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
@@ -82,9 +82,9 @@
         </div>
         
         <div class="card">
-          <div class="card-header" id="headingThree">
+          <div class="card-header bg-info" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">COMMENT (embedded)</button>
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">COMMENT</button>
             </h2>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
@@ -110,13 +110,13 @@
       
       </div>
 
-      <h1>Usage</h1>
+      <h1 class="text-secondary">Usage</h1>
       <div class="accordion" id="accordionExample">
         <div class="card">
-          <div class="card-header" id="headingFour">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">USER</button>
-            </h2>
+          <div class="card-header bg-info" id="headingFour">
+            <p class="mb-0">
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">USERS</button> 
+            <small class="text-white">/api/users</small></p>
           </div>
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
             <div class="card-body">
@@ -140,7 +140,7 @@
                     <th scope="row">GET</th>
                     <td>/:userNames</td>
                     <td>show</td>
-                    <td>See specific users page</td>
+                    <td>See specific user's page</td>
                   </tr>
                   <tr>
                     <th scope="row">POST</th>
@@ -161,10 +161,10 @@
         </div>
       
         <div class="card">
-          <div class="card-header" id="headingFive">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">RECIPE</button>
-            </h2>
+          <div class="card-header bg-info" id="headingFive">
+            <p class="mb-0">
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">RECIPES</button><small class="text-white">/api/recipes</small>
+            </p>
           </div>
           <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
             <div class="card-body">
@@ -227,10 +227,10 @@
         </div>
         
         <div class="card">
-          <div class="card-header" id="headingSix">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">COMMENT</button>
-            </h2>
+          <div class="card-header bg-info" id="headingSix">
+            <p class="mb-0">
+              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">COMMENTS</button><small class="text-white">(embedded in /recipes)</small>
+            </p>
           </div>
           <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
             <div class="card-body">
@@ -273,17 +273,17 @@
         <div class="card text-center mt-4">
           
           <div class="card-body">
-            <h5 class="card-title">Additional Documentation</h5>
+            <h5 class="card-title text-secondary">Additional Documentation</h5>
             
-            <a class="btn btn-primary" href="https://trello.com/b/rgRoJXTm" title="See user stories for thie app on Trello" target="_blank" role="button">User Stories</a>
+            <a class="btn btn-secondary" href="https://trello.com/b/rgRoJXTm" title="See user stories for thie app on Trello" target="_blank" role="button">User Stories</a>
             
-            <a class="btn btn-primary" href="https://www.lucidchart.com/documents/view/6a2f208a-aa33-45e2-95d1-bdfdd2d684cc" target="_blank" title="See the data relationship diagram on Lucid Chart" role="button">ERD</a>
+            <a class="btn btn-secondary" href="https://www.lucidchart.com/documents/view/6a2f208a-aa33-45e2-95d1-bdfdd2d684cc" target="_blank" title="See the data relationship diagram on Lucid Chart" role="button">ERD</a>
             
-            <a class="btn btn-primary" href="https://unsplash.com/@brookelark?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Brooke Lark"><span style="display:inline-block; padding-right: 4px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block">Photo Credit</span></a>
+            <a class="btn btn-secondary" href="https://unsplash.com/@brookelark?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Brooke Lark"><span style="display:inline-block; padding-right: 4px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block">Photo Credit</span></a>
           
           </div>
-          <div class="card-footer text-muted">
-            <a href="https://github.com/zsiskos/recipe-app" target="_blank" title="See all the files on my GitHub repo">Built by zoë.Supernova </a><img src="https://i.imgur.com/Ztfsg4E.png" alt="github logo"/>
+          <div class="card-footer text-muted bg-info text-white">
+            <a href="https://github.com/zsiskos/recipe-app" target="_blank" title="See all the files on my GitHub repo" class="text-white">Built by zoë.Supernova </a><img src="https://i.imgur.com/Ztfsg4E.png" alt="github logo"/>
           </div>
         </div>
 
