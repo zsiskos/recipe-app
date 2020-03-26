@@ -12,14 +12,14 @@
       <div class="card mb-3">
         <img src="https://i.imgur.com/iPRrXaM.jpg" class="card-img-top" alt="ingredients to make spaghetti">
         <div class="card-body">
-          <h1 class="display-2"><%= title %></h1>
+          <h2 class="display-3"><%= title %></h2>
           <p class="card-text">A free API for culinarians and foodies alike. Find, create, save,  and share your favourite recipes.</p>
           <p class="card-text"><small class="text-muted">Base url:<a href="#" target="_blank">LINK</a></small></p>
         </div>
       </div>
 
       <h1>Models</h1>
-      <div class="accordion" id="accordionExample">
+      <div class="accordion  mb-3" id="accordionExample">
         <div class="card">
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
@@ -84,7 +84,7 @@
         <div class="card">
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">COMMENT</button>
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">COMMENT (embedded)</button>
             </h2>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
@@ -124,29 +124,35 @@
                 <thead>
                   <tr>
                     <th scope="col">Method</th>
-                    <th scope="col">URI</th>
+                    <th scope="col">URL</th>
                     <th scope="col">CTRL</th>
                     <th scope="col">DESCRIPTION</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row">GET</th>
+                    <td>/</td>
+                    <td>index</td>
+                    <td>List all users</td>
                   </tr>
                   <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                    <th scope="row">GET</th>
+                    <td>/:userNames</td>
+                    <td>show</td>
+                    <td>See specific users page</td>
                   </tr>
                   <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                    <th scope="row">POST</th>
+                    <td>/</td>
+                    <td>create</td>
+                    <td>Create new user</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">PUT</th>
+                    <td>/:userName</td>
+                    <td>update</td>
+                    <td>Update user (restricted to user)</td>
                   </tr>
                 </tbody>
               </table>
@@ -162,7 +168,60 @@
           </div>
           <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
             <div class="card-body">
-            Usage recipe
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Method</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">CTRL</th>
+                    <th scope="col">DESCRIPTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">GET</th>
+                    <td>/</td>
+                    <td>index</td>
+                    <td>List all recipes</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">GET</th>
+                    <td>/search</td>
+                    <td>show</td>
+                    <td>See specific recipes based on search (tags)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">GET</th>
+                    <td>/:id</td>
+                    <td>show</td>
+                    <td>Get a single recipe</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">POST</th>
+                    <td>/</td>
+                    <td>create</td>
+                    <td>Create new recipe (must be logged in)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">PUT</th>
+                    <td>/:id</td>
+                    <td>update</td>
+                    <td>Update recipe (must be logged in)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">DELETE</th>
+                    <td>/:id</td>
+                    <td>delete</td>
+                    <td>Delete recipe (must be logged in)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">POST</th>
+                    <td>/:id</td>
+                    <td>create</td>
+                    <td>Save recipe to user list (must be logged in)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -175,25 +234,56 @@
           </div>
           <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
             <div class="card-body">
-            usage comment
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Method</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">CTRL</th>
+                    <th scope="col">DESCRIPTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">GET</th>
+                    <td>/:id</td>
+                    <td>index</td>
+                    <td>Get specific comment</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">POST</th>
+                    <td>/comments</td>
+                    <td>create</td>
+                    <td>Create comment on recipe (must be logged in)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">DELETE</th>
+                    <td>/:id</td>
+                    <td>delete</td>
+                    <td>Delete comment (must be logged in)</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
 
       </div>
-      
-        <div class="card text-center">
-          <div class="card-header">
-            Featured
-          </div>
+        
+        <div class="card text-center mt-4">
+          
           <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@brookelark?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Brooke Lark"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Brooke Lark</span></a>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">Additional Documentation</h5>
+            
+            <a class="btn btn-primary" href="https://trello.com/b/rgRoJXTm" title="See user stories for thie app on Trello" target="_blank" role="button">User Stories</a>
+            
+            <a class="btn btn-primary" href="https://www.lucidchart.com/documents/view/6a2f208a-aa33-45e2-95d1-bdfdd2d684cc" target="_blank" title="See the data relationship diagram on Lucid Chart" role="button">ERD</a>
+            
+            <a class="btn btn-primary" href="https://unsplash.com/@brookelark?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Brooke Lark"><span style="display:inline-block; padding-right: 4px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block">Photo Credit</span></a>
+          
           </div>
           <div class="card-footer text-muted">
-            2 days ago
+            <a href="https://github.com/zsiskos/recipe-app" target="_blank" title="See all the files on my GitHub repo">Built by zoë.Supernova </a><img src="https://i.imgur.com/Ztfsg4E.png" alt="github logo"/>
           </div>
         </div>
 
