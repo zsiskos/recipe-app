@@ -9,266 +9,264 @@
   </head>
   <body>
     <div class="container w-75 p-3">
-      <div class="card mb-3">
-        <a href="/"><img src="https://i.imgur.com/iPRrXaM.jpg" class="card-img-top" alt="ingredients to make spaghetti"></a>
-        <div class="card-body">
-          <h2 class="display-3"><%= title %></h2>
-          <p class="card-text">A free API for culinarians. Find, create, save, and share your favourite recipes.</p>
-          <p class="card-text"><small class="text-muted">Base url: https://recipe-box-sei-project.herokuapp.com/api</small></p>
+        <div class="card mb-3">
+            <a href="/"><img src="https://i.imgur.com/iPRrXaM.jpg" class="card-img-top" alt="ingredients to make spaghetti"></a>
+            <div class="card-body">
+                <h2 class="display-3"><%= title %></h2>
+                <p class="card-text">A free API for culinarians. Find, create, save, and share your favourite recipes.</p>
+                <p class="card-text"><small class="text-muted">Base url: https://recipe-box-sei-project.herokuapp.com/api</small></p>
+            </div>
         </div>
-      </div>
 
-      <h1 class="text-secondary">Models</h1>
-      <div class="accordion  mb-3" id="accordionExample">
-        <div class="card">
-          <div class="card-header bg-info" id="headingOne">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">USER</button>
-            </h2>
-          </div>
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-            <pre>
-              <code>
-                {
-                  "_id": GENERATED
-                  "userName": String,
-                  "email": String,
-                  "password": String,
-                  "foodPreferences": [String]
-                  "photo": [String],
-                  "socialLinks": [String],
-                  "recipesSaved": [{
-                      "type": Schema.Types.ObjectId,
-                      "ref": 'Recipe'
-                  }],
-                  "timestamps": true
-                }
-              </code>
-            </pre>
+        <div class="accordion" id="accordionExample">
+            <h1 class="text-secondary mt-4">Models</h1>
+            <div class="card">
+                <div class="card-header bg-info" id="headingOne">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">USER</button>
+                    </h2>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <pre>
+                        <code>
+                            {
+                            "_id": GENERATED
+                            "userName": String,
+                            "email": String,
+                            "password": String,
+                            "foodPreferences": [String]
+                            "photo": [String],
+                            "socialLinks": [String],
+                            "recipesSaved": [{
+                                "type": Schema.Types.ObjectId,
+                                "ref": 'Recipe'
+                            }],
+                            "timestamps": true
+                            }
+                        </code>
+                        </pre>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
       
-        <div class="card">
-          <div class="card-header bg-info" id="headingTwo">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">RECIPE</button>
-            </h2>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-              <pre>
-              <code>
-                {
-                  "_id": GENERATED
-                  "title": String,
-                  "category": String,
-                  "ingredients": String,
-                  "tags": [String]
-                  "photo": [String],
-                  "video": [String],
-                  "createdBy": [{
-                      "type": Schema.Types.ObjectId,
-                      "ref": 'User'
-                  }],
-                  "comments": [CommentSchema],
-                  "timestamps": true
-                }
-                </code>
-                </pre>
+            <div class="card">
+                <div class="card-header bg-info" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">RECIPE</button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <pre>
+                        <code>
+                            {
+                            "_id": GENERATED
+                            "title": String,
+                            "category": String,
+                            "ingredients": String,
+                            "tags": [String]
+                            "photo": [String],
+                            "video": [String],
+                            "createdBy": [{
+                                "type": Schema.Types.ObjectId,
+                                "ref": 'User'
+                            }],
+                            "comments": [CommentSchema],
+                            "timestamps": true
+                            }
+                            </code>
+                            </pre>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
+            
+            <div class="card">
+                <div class="card-header bg-info" id="headingThree">
+                    <h2 class="mb-0">
+                    <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">COMMENT</button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                    <pre>
+                        <code>
+                        {
+                            "_id": GENERATED
+                            "userId": {
+                            type: Schema.Types.ObjectId,
+                            ref: 'User',
+                            },
+                            "name": String,
+                            "copy": String,
+                            "rating": Number,
+                            "timestamps": true
+                        }
+                        </code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
         
-        <div class="card">
-          <div class="card-header bg-info" id="headingThree">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">COMMENT</button>
-            </h2>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <div class="card-body">
-              <pre>
-                <code>
-                  {
-                    "_id": GENERATED
-                    "userId": {
-                      type: Schema.Types.ObjectId,
-                      ref: 'User',
-                    },
-                    "name": String,
-                    "copy": String,
-                    "rating": Number,
-                    "timestamps": true
-                  }
-                </code>
-                </pre>
-            </div>
-          </div>
-        </div>
-      
-      </div>
 
-      <h1 class="text-secondary">Usage</h1>
-      <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header bg-info" id="headingFour">
-            <p class="mb-0">
-              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">USERS</button> 
-            <small class="text-white">/users</small></p>
-          </div>
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-            <div class="card-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Method</th>
-                    <th scope="col">URL</th>
-                    <th scope="col">CTRL</th>
-                    <th scope="col">DESCRIPTION</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">GET</th>
-                    <td>/</td>
-                    <td>index</td>
-                    <td>List all users</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">GET</th>
-                    <td>/:userNames</td>
-                    <td>show</td>
-                    <td>See specific user's page</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">POST</th>
-                    <td>/</td>
-                    <td>create</td>
-                    <td>Create new user</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">PUT</th>
-                    <td>/:userName</td>
-                    <td>update</td>
-                    <td>Update user (restricted to user)</td>
-                  </tr>
-                </tbody>
-              </table>
+            <h1 class="text-secondary mt-4">Usage</h1>
+            <div class="card">
+                    <div class="card-header bg-info" id="headingFour">
+                        <p class="mb-0">
+                            <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">USERS</button> 
+                            <small class="text-white">/users</small>
+                        </p>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Method</th>
+                                        <th scope="col">URL</th>
+                                        <th scope="col">CTRL</th>
+                                        <th scope="col">DESCRIPTION</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">GET</th>
+                                        <td>/</td>
+                                        <td>index</td>
+                                        <td>List all users</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">GET</th>
+                                        <td>/:userNames</td>
+                                        <td>show</td>
+                                        <td>See specific user's page</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">POST</th>
+                                        <td>/</td>
+                                        <td>create</td>
+                                        <td>Create new user</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">PUT</th>
+                                        <td>/:userName</td>
+                                        <td>update</td>
+                                        <td>Update user (restricted to user)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
             </div>
-          </div>
-        </div>
-      
-        <div class="card">
-          <div class="card-header bg-info" id="headingFive">
-            <p class="mb-0">
-              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">RECIPES</button><small class="text-white">/recipes</small>
-            </p>
-          </div>
-          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-            <div class="card-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Method</th>
-                    <th scope="col">URL</th>
-                    <th scope="col">CTRL</th>
-                    <th scope="col">DESCRIPTION</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">GET</th>
-                    <td>/</td>
-                    <td>index</td>
-                    <td>List all recipes</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">GET</th>
-                    <td>/search</td>
-                    <td>show</td>
-                    <td>See specific recipes based on search (tags)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">GET</th>
-                    <td>/:id</td>
-                    <td>show</td>
-                    <td>Get a single recipe</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">POST</th>
-                    <td>/</td>
-                    <td>create</td>
-                    <td>Create new recipe (must be logged in)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">PUT</th>
-                    <td>/:id</td>
-                    <td>update</td>
-                    <td>Update recipe (must be logged in)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">DELETE</th>
-                    <td>/:id</td>
-                    <td>delete</td>
-                    <td>Delete recipe (must be logged in)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">POST</th>
-                    <td>/:id</td>
-                    <td>create</td>
-                    <td>Save recipe to user list (must be logged in)</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
         
-        <div class="card">
-          <div class="card-header bg-info" id="headingSix">
-            <p class="mb-0">
-              <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">COMMENTS</button><small class="text-white">(embedded in /recipes)</small>
-            </p>
-          </div>
-          <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
-            <div class="card-body">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Method</th>
-                    <th scope="col">URL</th>
-                    <th scope="col">CTRL</th>
-                    <th scope="col">DESCRIPTION</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">GET</th>
-                    <td>/:id</td>
-                    <td>index</td>
-                    <td>Get specific comment</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">POST</th>
-                    <td>/comments</td>
-                    <td>create</td>
-                    <td>Create comment on recipe (must be logged in)</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">DELETE</th>
-                    <td>/:id</td>
-                    <td>delete</td>
-                    <td>Delete comment (must be logged in)</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="card">
+                    <div class="card-header bg-info" id="headingFive">
+                        <p class="mb-0">
+                            <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">RECIPES</button><small class="text-white">/recipes</small>
+                        </p>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Method</th>
+                                    <th scope="col">URL</th>
+                                    <th scope="col">CTRL</th>
+                                    <th scope="col">DESCRIPTION</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">GET</th>
+                                    <td>/</td>
+                                    <td>index</td>
+                                    <td>List all recipes</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">GET</th>
+                                    <td>/search</td>
+                                    <td>show</td>
+                                    <td>See specific recipes based on search (tags)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">GET</th>
+                                    <td>/:id</td>
+                                    <td>show</td>
+                                    <td>Get a single recipe</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">POST</th>
+                                    <td>/</td>
+                                    <td>create</td>
+                                    <td>Create new recipe (must be logged in)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">PUT</th>
+                                    <td>/:id</td>
+                                    <td>update</td>
+                                    <td>Update recipe (must be logged in)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">DELETE</th>
+                                    <td>/:id</td>
+                                    <td>delete</td>
+                                    <td>Delete recipe (must be logged in)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">POST</th>
+                                    <td>/:id</td>
+                                    <td>create</td>
+                                    <td>Save recipe to user list (must be logged in)</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
             </div>
-          </div>
+            
+            <div class="card">
+                    <div class="card-header bg-info" id="headingSix">
+                        <p class="mb-0">
+                            <button class="btn btn-link collapsed text-white" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">COMMENTS</button><small class="text-white">(embedded in /recipes)</small>
+                        </p>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Method</th>
+                                    <th scope="col">URL</th>
+                                    <th scope="col">CTRL</th>
+                                    <th scope="col">DESCRIPTION</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">GET</th>
+                                    <td>/:id</td>
+                                    <td>index</td>
+                                    <td>Get specific comment</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">POST</th>
+                                    <td>/comments</td>
+                                    <td>create</td>
+                                    <td>Create comment on recipe (must be logged in)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">DELETE</th>
+                                    <td>/:id</td>
+                                    <td>delete</td>
+                                    <td>Delete comment (must be logged in)</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div> 
         </div>
-
-      </div>
         
         <div class="card text-center mt-4">
           
