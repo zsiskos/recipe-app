@@ -34,17 +34,3 @@ const RecipeSchema = new Schema({
 const Recipe = mongoose.model('Recipe', RecipeSchema);
 
 module.exports = Recipe;
-
-// {
-// 	"tags": "low carb",
-// 	"title": "Chicken",
-// 	"category": "Dinner",
-// 	"ingredients": "6 oz chicken",
-// 	"instructions": "MOntreal chicken spice, instant pot"
-// }
-
-// {
-// 	"name": "Zoe",
-// 	"copy": "wowza!",
-// 	"rating": 3
-// }
