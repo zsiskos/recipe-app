@@ -9,8 +9,6 @@ require('./config/database')
 
 let indexRouter = require('./routes/index');
 let apiRouter = require('./routes/api/api');
-let recipesRouter = require('./routes/api/recipes');
-let usersRouter = require('./routes/api/users')
 
 var app = express();
 
@@ -23,11 +21,22 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(function(req, res, next) {
+  let userId = null;
+  if (req.query.currentUserId) userId = req.query.currentUserId
+  if (req.body.currentUserId) userId = req.body.currentUserId
+  if (userId) {
+      User.findById(userId, function(err, user) {
+          req.user = user
+          next()
+      })        
+  } else {
+      next()
+  }
+})
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
-// app.use('/api/recipes', recipesRouter);
-// app.use('/api/users', usersRouter);
+
 
 
 // catch 404 and forward to error handler
