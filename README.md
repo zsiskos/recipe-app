@@ -12,6 +12,6 @@ A free API for culinarians. Find, create, save, and share your favourite recipes
 # Models
 ![ERD](https://i.imgur.com/uTGN4rJ.png 'ERD')
 
-# Next Step
+# Next Steps
 Use React to build the front end to make this a fully functioning website.
 
